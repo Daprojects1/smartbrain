@@ -1,7 +1,6 @@
-const particlesInit = (main) => {
-
+function particlesInit(main) {
     // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
-};
+}
 
 const particlesOptions = {
 
@@ -77,9 +76,10 @@ const particlesOptions = {
     detectRetina: true,
 }
 
-const particlesLoaded = (container) => {
+function particlesLoaded(container) {
 };
-
-export default {
+const particlesConfig = {
     particlesInit, particlesLoaded, particlesOptions
 }
+
+export default particlesConfig;
