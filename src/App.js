@@ -18,25 +18,37 @@ class App extends React.Component {
     super()
     this.state = {
       input: "",
+      box: {}
     }
   }
   onInputChange = (e) => {
     this.setState({ input: e.target.value })
   }
-  handleResponse = (response) => {
-    console.log(response)
-    this.setState({ response })
+  changeAreaBox = (responseBox) => {
+    let img = document.getElementById("mainImg")
+    let width = img.width
+    let height = img.height
+    console.log(width, height)
+    let box = {
+      leftCol: responseBox.left_col * width,
+      topRow: responseBox.top_row * height,
+      bottomRow: height - (responseBox.bottom_row * height),
+      rightCol: width - (responseBox.right_col * width),
+    }
+    this.setState({ box })
   }
-  onClickDetectBtn = (e) => {
-    app.models.predict("aaa03c23b3724a16a56b629203edc62c", this.state.input)
+  onDetectBtn = (e) => {
+    app.models.predict("a403429f2ddf4b49b307e318f00e528b", this.state.input)
       .then((response) => {
-        return this.handleResponse(response.outputs)
+        const regionArea = response.outputs[0].data.regions[0].region_info.bounding_box
+        this.changeAreaBox(regionArea)
+        this.setState({ isUrlValid: true })
       }, (err) => {
-        this.setState({ response: null })
+        this.setState({ isUrlValid: false })
       })
   }
   checkResponse = () => {
-    return this.state.response ? this.state.input : null
+    return this.state.isUrlValid ? this.state.input : null
   }
   render() {
     const { input } = this.state
@@ -51,8 +63,8 @@ class App extends React.Component {
         <Navigation />
         <Logo />
         <Rank />
-        <ImageLinkForm onInputChange={this.onInputChange} value={input} onClickDetectBtn={this.onClickDetectBtn} />
-        <FaceRecognition url={this.checkResponse()} />
+        <ImageLinkForm onInputChange={this.onInputChange} value={input} onDetectBtn={this.onDetectBtn} />
+        <FaceRecognition url={this.checkResponse()} box={this.state.box} isUrlValid={this.state.isUrlValid} />
       </div>
     );
   }
