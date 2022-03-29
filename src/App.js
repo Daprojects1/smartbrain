@@ -10,6 +10,7 @@ import Clarifai from "clarifai"
 import SignIn from './Components/SignIn/SignIn';
 import { Navigate, useNavigate } from 'react-router-dom';
 import './App.css';
+import Register from './Components/Register/Register';
 
 
 const app = new Clarifai.App({
@@ -29,7 +30,6 @@ const App = () => {
     let img = document.getElementById("mainImg")
     let width = img.width
     let height = img.height
-    console.log(width, height)
     let box = {
       leftCol: responseBox.left_col * width,
       topRow: responseBox.top_row * height,
@@ -50,6 +50,7 @@ const App = () => {
       })
   }
   const checkResponse = () => {
+    console.log(isUrlValid)
     return isUrlValid ? input : null
   }
   const onRouteChange = (route) => {
@@ -66,8 +67,9 @@ const App = () => {
       />
       <Navigation onRouteChange={onRouteChange} signInString={signInString} />
       {
-        route === "Sign In" ? <SignIn onRouteChange={onRouteChange} /> :
-          <><Logo /><Rank /><ImageLinkForm onInputChange={onInputChange} value={input} onDetectBtn={onDetectBtn} /><FaceRecognition url={checkResponse()} box={box} /></>
+        route === "Register" ? <Register onRouteChange={onRouteChange} /> :
+          route === "Sign In" ? <SignIn onRouteChange={onRouteChange} /> :
+            <><Logo /><Rank /><ImageLinkForm onInputChange={onInputChange} value={input} onDetectBtn={onDetectBtn} /><FaceRecognition url={checkResponse()} box={box} /></>
       }
     </div>
   );

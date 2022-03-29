@@ -53,6 +53,7 @@ const SignIn = ({ onRouteChange }) => {
                         <a
                             href="#0"
                             className="f6 link dim black db"
+                            onClick={() => onRouteChange("Register")}
                         >
                             Register
                         </a>
