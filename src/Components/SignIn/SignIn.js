@@ -46,13 +46,13 @@ const SignIn = ({ onRouteChange }) => {
                             className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                             type="submit"
                             value="Sign in"
-                            onClick={() => onRouteChange("Sign Out")}
+                            onClick={() => onRouteChange("Signed In")}
                         />
                     </div>
                     <div className="lh-copy mt3">
                         <a
                             href="#0"
-                            className="f6 link dim black db"
+                            className="f6 link dim black db poiinter"
                             onClick={() => onRouteChange("Register")}
                         >
                             Register
