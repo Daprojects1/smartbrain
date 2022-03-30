@@ -4,7 +4,7 @@ import "./imagelink.css"
 const ImageLinkForm = ({ onInputChange, onDetectBtn, value }) => {
     return (
         <div>
-            <p className="f3 ma3 tc">{"This magic brain will detect faces. Give it a try"}</p>
+            <p className="f3 ma3 tc">{"This smart brain will detect faces. Give it a try"}</p>
             <div className="center">
                 <div className="pa4 br3 form center shadow-5">
                     <input className="f4 pa2 w-70 center" value={value} onChange={onInputChange} type="text" />

@@ -4,7 +4,7 @@ function particlesInit(main) {
 
 const particlesOptions = {
 
-    fpsLimit: 120,
+    fpsLimit: 30,
     interactivity: {
         events: {
             onClick: {
@@ -60,7 +60,7 @@ const particlesOptions = {
                 enable: true,
                 area: 800,
             },
-            value: 120,
+            value: 80,
         },
         opacity: {
             value: 0.5,

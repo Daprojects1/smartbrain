@@ -32,6 +32,7 @@ class App extends React.Component {
   changeAreaBox = (response) => {
     const responseBox = response.outputs[0].data.regions[0].region_info.bounding_box
     const img = document.getElementById("mainImg")
+    console.log(img.loading)
     img.onload = () => {
       const width = img.width
       const height = img.height
