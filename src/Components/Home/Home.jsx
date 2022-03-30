@@ -11,7 +11,7 @@ const Home = ({ App }) => {
             <Logo />
             <Rank />
             <ImageLinkForm onInputChange={App.onInputChange} value={App.state.input} onDetectBtn={App.onDetectBtn} />
-            <FaceRecognition url={App.checkResponse()} box={App.state.box} />
+            <FaceRecognition url={App.checkResponse()} box={App.state.box} isImageLoaded={App.state.isImageLoaded} />
         </>
     )
 

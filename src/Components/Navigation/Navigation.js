@@ -8,8 +8,8 @@ const Navigation = ({ onRouteChange, route }) => {
 
             <nav className="tr mainNav">
                 <>
-                    <p className="f2 link dim blakc underline pa3 pointer" onClick={() => onRouteChange("Sign In")}>Sign In</p>
-                    <p className="f2 link dim blakc underline pa3 pointer" onClick={() => onRouteChange("Register")}>Register</p>
+                    <p className="f3 link dim blakc underline pa3 pointer" onClick={() => onRouteChange("Sign In")}>Sign In</p>
+                    <p className="f3 link dim blakc underline pa3 pointer" onClick={() => onRouteChange("Register")}>Register</p>
                 </>
             </nav>
         )
