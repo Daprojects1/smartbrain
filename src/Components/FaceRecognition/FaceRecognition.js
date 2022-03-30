@@ -3,7 +3,7 @@ import "./faceRec.css"
 
 const FaceRecognition = ({ url, box, isImageLoaded }) => {
     console.log(isImageLoaded)
-    if (!url && !isImageLoaded) return ""
+    if (!url) return ""
     else if (url) {
         return (
             <div className="faceDiv center ma2">

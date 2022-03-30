@@ -26,6 +26,7 @@ class App extends React.Component {
     }
   }
   onInputChange = (e) => {
+    if (e.target.value.length === 0) this.setState({ isUrlValid: false })
     this.setState({ input: e.target.value })
   }
   changeAreaBox = (response) => {
@@ -51,8 +52,9 @@ class App extends React.Component {
         this.changeAreaBox(response)
       })
       .catch((e) => {
-        console.log(e)
-        toast.dark("Please input a valid face image")
+        if (!e.response) toast.dark("Sorry, I only detect faces")
+        else toast.dark("Invalid Image Link")
+
         this.setState({ isUrlValid: false })
       })
   }
